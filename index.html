@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>calendar.js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="calendar.js">
+    <meta name="author" content="">
+    
+
+    <!-- Le styles -->
+    <link href="./css/bootstrap.css" rel="stylesheet">
+    <style>
+      	body {
+        	padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+			font-size: 14px;
+			font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+			background-image: url('img/xbg.jpg');
+			background-attachment:fixed;
+		}
+		#calendar {
+			margin: 0 auto;
+		}
+		a.hidden{
+			visibility: hidden;
+		}
+	</style>
+	<link rel="shortcut icon" href="favicon.ico" >
+    <link href="./css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href='./fullcalendar/fullcalendar.css' />
+    <link rel='stylesheet' type='text/css' href='./fullcalendar/fullcalendar.print.css' media='print' />
+    <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+    <script type="text/javascript" src="./jquery/jquery-1.7.1.min.js" charset="utf-8"></script>
+    <script type='text/javascript' src='./jquery/jquery-ui-1.8.17.custom.min.js'></script>
+    <script type='text/javascript' src='./fullcalendar/fullcalendar.min.js'></script>
+    <script type='text/javascript' src='./fullcalendar/gcal.js'></script>
+    <script type='text/javascript' src='./calendar.js'></script>
+
+    </head>
+    <body onload="onLoad()">
+    <div class="navbar navbar-fixed-top">
+          <div class="navbar-inner">
+            <div class="container">
+              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </a>
+              <a class="brand" href="./index.html">calendar.js</a>
+              <div class="nav-collapse">
+                <ul class="nav">
+                  <li class="active"><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+                
+                <ul class="nav pull-right">
+                <li><a id="authorize" href="#authorize" class="hidden">Authorize</a></li>
+                <li class="dropdown"><a id="greeting" class="dropdown-toggle" data-toggle="dropdown" href="#drop"></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#refresh" onclick="reloadData()">Reload Data</a></li>
+                    </ul>
+                    </li>
+                </ul>
+              </div><!--/.nav-collapse -->
+            </div>
+          </div>
+        </div>
+
+    <div class="container-fluid" style="max-width:960px; margin:0 auto">
+        <div class="row-fluid">
+            <div class="span3">
+            
+            <h2>Calendars</h2>
+            <div id="selectcal" style="visibility:hidden">
+            <h3>My Calendars</h3>
+            <ul class="nav nav-tabs nav-stacked" id="callist">
+            </ul>
+            </div>
+            
+            <h3>External Feeds</h3>
+            <ul class="nav nav-tabs nav-stacked">
+                <li><a href="" onclick="addEvent()">Empty event</a></li> <!-- Enter a URL of a public calendar xml feed into the addEvent function -->
+            </ul>
+            
+            <ul class="nav nav-tabs nav-stacked">
+                <li><button class="btn btn-danger btn-large" onclick="removeEvents()">Clear Calendar</button></li>
+            </ul>
+            
+            </div><!-- span3 -->
+            <div class="span9">
+            <div id='calendar'></div>
+        </div>
+        </div>
+    </div>
+    <script type='text/javascript' src='./js/bootstrap.min.js'></script>
+    <script src="./js/bootstrap-dropdown.js"></script>
+    </body>
+</html>
